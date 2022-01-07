@@ -200,3 +200,9 @@ bot.on("chat:bot_position", (username, message) => {
 
   chatUtils.chat(`${coords.join(" ")}`);
 });
+
+const app = require('express')();
+
+app.get('/', (req, res) => res.send('Server is up.'));
+app.listen(3000);
+
