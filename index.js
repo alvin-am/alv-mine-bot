@@ -28,11 +28,6 @@ bot.loadPlugins([armorManager, pathfinder, autoeat]);
 
 const chatUtils = new ChatUtils(bot, operator);
 
-var http = require("http");
-setInterval(function() {
-    http.get("http://<your app name>.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
-
 bot.once("spawn", () => {
   bot.chat("/tps")
   bot.chat("/weather clear")
@@ -205,3 +200,9 @@ bot.on("chat:bot_position", (username, message) => {
 
   chatUtils.chat(`${coords.join(" ")}`);
 });
+
+var http = require("http");
+setInterval(function() {
+    http.get("https://miner-bot-1.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
+
