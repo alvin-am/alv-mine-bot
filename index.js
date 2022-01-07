@@ -28,6 +28,11 @@ bot.loadPlugins([armorManager, pathfinder, autoeat]);
 
 const chatUtils = new ChatUtils(bot, operator);
 
+var http = require("http");
+setInterval(function() {
+    http.get("http://<your app name>.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
+
 bot.once("spawn", () => {
   bot.chat("/tps")
   bot.chat("/weather clear")
@@ -200,9 +205,3 @@ bot.on("chat:bot_position", (username, message) => {
 
   chatUtils.chat(`${coords.join(" ")}`);
 });
-
-const app = require('express')();
-
-app.get('/', (req, res) => res.send('Server is up.'));
-app.listen(3000);
-
